@@ -13,6 +13,8 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				index: true,
+				loader: () =>
+					fetch('booksData.json').then((response) => response.json()), //only home loader ei data fetch korbe
 				// path: '/',
 				Component: Home,
 			},
