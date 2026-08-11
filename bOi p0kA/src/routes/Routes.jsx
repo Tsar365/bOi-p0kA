@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
 			{
 				index: true,
 				loader: () =>
-					fetch('booksData.json').then((response) => response.json()), //only home loader ei data fetch korbe
+					fetch('booksData.json'), //only home loader ei data fetch korbe
 				// path: '/',
 				Component: Home,
 			},
@@ -26,8 +26,10 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: '/bookDetails/:Id',
+				loader: () =>
+					fetch('booksData.json'),
 				Component: BookDetails,
-			}
+			},
 		],
 	},
 ]);
