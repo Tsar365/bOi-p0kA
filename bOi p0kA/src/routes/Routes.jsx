@@ -5,6 +5,7 @@ import Errorpage from '../pages/errorpage/Errorpage';
 import Home from '../pages/home/Home';
 import About from '../pages/about/About';
 import BookDetails from '../pages/bookdetails/BookDetails';
+import ReadList from '../pages/readlist/ReadList';
 
 
 export const router = createBrowserRouter([
@@ -15,8 +16,7 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				loader: () =>
-					fetch('booksData.json'), //only home loader ei data fetch korbe
+				loader: () => fetch('booksData.json'), //only home loader ei data fetch korbe
 				// path: '/',
 				Component: Home,
 			},
@@ -25,9 +25,13 @@ export const router = createBrowserRouter([
 				Component: About,
 			},
 			{
+				path: '/readlist',
+				loader: () => fetch('booksData.json'),
+				Component: ReadList,
+			},
+			{
 				path: '/bookDetails/:Id',
-				loader: () =>
-					fetch('booksData.json'),
+				loader: () => fetch('booksData.json'),
 				Component: BookDetails,
 			},
 		],
